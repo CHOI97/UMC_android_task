@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/ui_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/toolbar_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회의"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"/>
+        <ImageView
+            android:layout_width="25sp"
+            android:layout_height="25sp"
+            android:src="@drawable/ic_baseline_info_24"
+            android:layout_gravity="right"
+            android:layout_margin="8dp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+    <LinearLayout
+        android:id="@+id/ui_contents"
+        android:layout_width="match_parent"
+        android:layout_height="80sp"
+        app:layout_constraintTop_toBottomOf="@+id/ui_toolbar"
+        android:orientation="horizontal"
+        android:background="@color/zoom_contents"
+        android:weightSum="4"
+        android:padding="8dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/im_camera"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:background="@drawable/radius_button_camera"
+                android:src="@drawable/ic_baseline_videocam_24" />
+
+            <TextView
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/im_camera"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:text="새 회의"
+                android:textSize="13sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/im_add"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:src="@drawable/ic_baseline_add_box_24"
+                android:background="@drawable/radius_button"
+                />
+
+            <TextView
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/im_add"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:text="참가"
+                android:textSize="13sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/im_cal"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:src="@drawable/ic_baseline_calendar_today_24"
+                android:background="@drawable/radius_button"/>
+            <TextView
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/im_cal"
+                android:layout_marginTop="0dp"
+                android:text="예약"
+                android:textSize="13sp"
+                android:gravity="center"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center">
+            <ImageButton
+                android:id="@+id/im_share"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:src="@drawable/ic_baseline_screen_share_24"
+                android:background="@drawable/radius_button"/>
+            <TextView
+
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/im_share"
+                android:layout_marginTop="0dp"
+                android:text="화면 공유"
+                android:textSize="12sp"
+                android:gravity="center"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/ui_re_meeting"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        app:layout_constraintTop_toBottomOf="@+id/ui_contents"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_calendar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_calendar_month_24" />
+
+        <TextView
+            android:id="@+id/tv_not"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_calendar"
+            android:text="예정된 회의 없음"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_not_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_not"
+            android:gravity="center"
+            android:text="예약도힌 회의가 여기에 나열됩니다."
+            android:textColor="@color/not_detail"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:gravity="center"
+        android:weightSum="4"
+        app:layout_constraintTop_toBottomOf="@+id/ui_re_meeting"
+        tools:layout_editor_absoluteX="0dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+            <Button
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:background="@drawable/ic_baseline_access_time_filled_24" />
+            <TextView
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:be="@+id/btn_time"
+                android:gravity="center"
+                android:text="회의"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:background="@drawable/ic_baseline_chat_bubble_24" />
+            <TextView
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:be="@+id/btn_time"
+                android:gravity="center"
+                android:text="팀채팅"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:background="@drawable/ic_baseline_account_box_24" />
+            <TextView
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:be="@+id/btn_time"
+                android:gravity="center"
+                android:text="연락처"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="25sp"
+                android:layout_height="25sp"
+                android:background="@drawable/ic_baseline_more_horiz_24" />
+            <TextView
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:be="@+id/btn_time"
+                android:gravity="center"
+                android:text="더 보기"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
